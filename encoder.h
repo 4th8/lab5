@@ -13,18 +13,19 @@ using namespace std;
 class encoder{
 	private:
 		string encodedString;
+		key* rep;
 
 	public:
-		encoder();
-		void genCode(char, node*, string);
-		string incode(node*);
+		encoder(key r);
+	//	void genCode(char, node*, string);
+		string incode(string filename);
 		void stringPrint();
 };
 
-encoder::encoder(){
-	encodedString = "";
+encoder::encoder(key k){
+	rep = k;
 };
-void encoder::genCode(char cur, node * n, string coded){// This will generate the code recursively.
+/*void encoder::genCode(char cur, node * n, string coded){// This will generate the code recursively.
 
 	using namespace std;
 	if(n->checkLeaf() == true){
@@ -45,21 +46,18 @@ void encoder::genCode(char cur, node * n, string coded){// This will generate th
 		genCode(cur,n->getRight(),coded+"1");
 	}
 
-};
-using namespace std;
-string encoder::incode(node *root){
-	using namespace std;
+};*/
+
+void  encoder::incode(filename){
 	ifstream text;
-	text.open("TextFile.txt");// this needs to be overwritten with a prompt.
+	text.open(filename);
 	char c;
 	while(text.get(c)){
 		cout<<"\nencoding: "<<c<<endl;
-		cout<<root->getWeight()<<endl;
-		genCode(c,root,"");
-		stringPrint();//This will be replaced when you get the binary printer working.
+		string s = rep.keyLookup(c);
+		genFile(s, filename);
 	}
 	text.close();
-	return encodedString;
 };
 void encoder::stringPrint(){
 	ofstream outfile;
