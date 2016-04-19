@@ -57,5 +57,11 @@ string key::lookup(char c){
 	}
 };
 string key::checkCode(string c){
-
+	for(int i = 0; i <size; i++){
+		if(boxes->get_elem(i)->getcode() == c){
+			return boxes->get_elem(i)->getChar();
+		}
+	return "";
+	}
+	
 };
