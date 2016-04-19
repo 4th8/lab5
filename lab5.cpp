@@ -10,6 +10,7 @@
 #include "keygen.h"
 #include "decoder.h"
 #include "calculateWeights.h"
+#include "Binary.h"
 #include "key.h"
 #include "encoder.h"
 

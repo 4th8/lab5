@@ -1,9 +1,11 @@
 class key{
 	private:
 		box_array<box*> * boxes;
+		int size;
 	public:
 		key(string);
 		string lookup(char);
+		string checkCode(string);
 };
 
 
@@ -37,7 +39,7 @@ key::key(string filename){
 		hh = char(ascii);
 		box * currentbox = new box(hh,coded);
 		if (num == 0){
-			boxes = new list(currentbox);
+			boxes = new box_array<box*>(currentbox);
 			num = 1;
 		}
 		else{
@@ -45,7 +47,7 @@ key::key(string filename){
 		}
 	}
 	keyFile.close();
-	size = array->get_size();
+	size = boxes->get_size();
 };
 string key::lookup(char c){
 	for(int i = 0; i <size; i++){
@@ -55,9 +57,11 @@ string key::lookup(char c){
 	}
 };
 string key::checkCode(string c){
+	string ans = "";
 	for(int i = 0; i <size; i++){
 		if(boxes->get_elem(i)->getcode() == c){
-			return boxes->get_elem(i)->getChar();
+			ans += boxes->get_elem(i)->getChar();
+			return ans;
 		}
 	return "";
 	}
