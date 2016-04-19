@@ -9,7 +9,6 @@ class decoder{
 		node * root;
 		key* k;
 		ifbstream bin;
-		string s;
 	public:
 		decoder(string,string);
 		void genText(char, node*);
@@ -26,9 +25,10 @@ decoder::decoder(string keyFilename, string binFilename){
 };
 
 string decoder::getString(){
-	s = genString(bin);
-	string currentCode;
-	const char* cs = s.c_str();
+	x = genString(bin);
+	int size = x.length();
+	string currentdecoded;
+	string currentPart = x[0];
 	for(int i=0; i<strlen(cs); i++){
 		char x = cs[i];
 		if(k->checkCode(x) != ""){
