@@ -1,3 +1,5 @@
+ #include "Binary.h"
+
 using namespace std;
 
 class decoder{
@@ -6,13 +8,34 @@ class decoder{
 		int pos;
 		string incodedText;
 		node * root;
+		key* k;
+		ifbstream bin;
+		string s;
 	public:
 		decoder(node*);
 		void genText(char, node*);
 		string getText();
 };
 
-decoder::decoder(node* root){
+decoder::decoder(string keyFilename, string binFilename){
+	bin.open(binFilename);
+	k = new key(keyFilename);
+} 
+
+string decoder::getString(){
+	s = genString(bin);
+	string currentCode;
+	const char* cs = s.c_str();
+	for(int i=0; i<strlen(cs); i++){
+		if(k->checkCode(cs[i]) != ""){
+			currentCode += k->checkCode(cs[i]);
+		} else{
+			break;
+		}
+	}
+	return currentCode;
+}
+/*
 	decodedString="";
 	incodedText = "";
 	root = root;
@@ -48,7 +71,7 @@ void decoder::genText(char c, node* n){
 	else{
 		pos = 99999;
 	}
-};
+}; */
 
 string decoder::getText(){
 	return decodedString;

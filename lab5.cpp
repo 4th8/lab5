@@ -68,6 +68,36 @@ node * buildTree(my_da_array<node*>* array){ //I think that we might need to dea
 }	
 
 int main(){
+	string command;
+
+	cout << "Please choose one of the following options: " << endl;
+	cout << "(C) Compress a file" << endl;
+	cout << "(D) Decompress a binary file" << endl; 
+	cout << "(Q) Quit " << endl;
+	cout << ">> " ;
+	
+	cin >> command;
+	cin.ignore();
+
+	while(command != "C" && command != "D" && command != "Q"){
+		cout << "Invalid command, please try again" << endl;
+		cout << "Enter 'C' to compress a file" << endl;
+		cout << "Enter 'D' to decompress a file" << endl;
+		cout << "Enter 'Q' to quit" << endl;
+		cout << ">> ";
+
+	}
+	
+	if(command == "Q"){
+		cout << "Program terminated" << endl;
+		return 0;
+	} else if(command == "D"){
+		string hzipFilename;
+		cout<< "Please enter the .hzip file to be decompressed" << endl;
+		cin >> hzipFilename;
+		cin.ignore();
+
+	}
 	calculateWeights();//tested works
 	my_da_array<node*>* weights = readWeights();
 	//int size = weights->get_size();
@@ -76,9 +106,9 @@ int main(){
 	//}
 	//cout<<"done"<<endl;
 	node * root = buildTree(weights);//tested works
-	encoder encode = encoder();
 	keygen k = keygen(root);
 	string key = k.getKey();
+	encoder encode = encoder();
 	cout<<"Key:\n"<<key<<endl;
 	string encoded = encode.incode(root);
 	//cout<<encoded<<endl;
@@ -89,3 +119,4 @@ int main(){
 	return 0;
 
 }
+
