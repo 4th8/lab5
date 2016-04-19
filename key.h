@@ -56,10 +56,6 @@ string key::lookup(char c){
 		}
 	}
 };
+string key::checkCode(string c){
 
-		
-		
-	}
-	 
 };
-
