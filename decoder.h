@@ -27,9 +27,8 @@ string decoder::getString(){
 	string currentCode;
 	const char* cs = s.c_str();
 	for(int i=0; i<strlen(cs); i++){
-		char x = cs[i];
-		if(k->checkCode(x) != ""){
-			currentCode += k->checkCode(x);
+		if(k->checkCode(cs[i]) != ""){
+			currentCode += k->checkCode(cs[i]);
 		} else{
 			break;
 		}

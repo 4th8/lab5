@@ -8,11 +8,9 @@
 #include <sstream> // Needed for stringstream
 #include <stdlib.h>
 #include "keygen.h"
-#include "calculateWeights.h"
-#include <string.h>
-#include "Binary.h"
-#include "key.h"
 #include "decoder.h"
+#include "calculateWeights.h"
+#include "key.h"
 #include "encoder.h"
 
 using namespace std;
@@ -115,6 +113,7 @@ int main(){
 			}
 		}
 		cout<< "Please enter the .hcodes file to be used" << endl;
+		cout << ">> " ;
 		cin >> hcodesFile;
 		cin.ignore();
 		while(hcodesFile.find(".hcodes") == -1){
@@ -126,27 +125,40 @@ int main(){
 				return 0;
 			}
 		}
+		decoder d = decoder(hcodesFile, hzipFile);
+		cout << "Your file has been decompressed" << endl;
+	} else{
+		string infile;
+		cout << "Enter the file .txt file you would like to compress" << endl;
+		cout << ">> " ;
+		cin >> infile;
+		int temp = inflile.find(".");
+		string input = infile.substr(0, temp);
 		
-		
+	//	string keyFilename = infile+".hcodes";
+	//	string compFilename = infile+".hzip";
 
+		calculateWeights(infile);
+		my_da_array<node*>* weights = readWeights();
+		node * root = buildTree(weights);//tested works
+		keygen kgen = keygen(root, input);
+		key* k = kgen.getKey();
+		encoder e = encoder(k);
+		e.incode(infile);
 	}
-	calculateWeights();//tested works
-	my_da_array<node*>* weights = readWeights();
-	//int size = weights->get_size();
+
+/*	//int size = weights->get_size();
 	//for(int i =0; i<size; i++){
 	//	cout<<weights->get_elem(i)->getVal()<<endl;;
 	//}
 	//cout<<"done"<<endl;
-	node * root = buildTree(weights);//tested works
-	keygen k = keygen(root);
-	string key = k.getKey();
 	encoder encode = encoder();
 	cout<<"Key:\n"<<key<<endl;
 	string encoded = encode.incode(root);
 	//cout<<encoded<<endl;
 	decoder d = decoder(root);
 	string decoded = d.getText();
-	cout<<decoded<<endl;
+	cout<<decoded<<endl; */
 	
 	return 0;
 

@@ -15,6 +15,7 @@ void genFile(string coded, string filename){
 						}
 				}
 		}
+		bin.close();
 }
 
 
