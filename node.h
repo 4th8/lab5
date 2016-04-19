@@ -1,4 +1,3 @@
-#include "data.h"
 using namespace std;
 class node{
 	

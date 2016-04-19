@@ -1,16 +1,16 @@
 using namespace std;
 
 template<class T>
-class my_da_array{
+class box_array{
 	private:
 		T * arr;
 		int size;
 		int unused;
 
 	public:
-		my_da_array();
-		my_da_array(T num);
-//		~my_da_array();
+		box_array();
+		box_array(T num);
+//		~box_array();
 		void print();
 		int da_push(T num);
 		int getRemaining();
@@ -23,19 +23,19 @@ class my_da_array{
 };
 // default constructor
 template<class T>
-my_da_array<T>::my_da_array(){
+box_array<T>::box_array(){
 	arr = new T[1];
 	size = 0;
 	unused = 0;
 }
 template<class T>
-int my_da_array<T>::getRemaining(){
+int box_array<T>::getRemaining(){
 	return unused;
 }
 
 // non-default constructor
 template<class T>
-my_da_array<T>::my_da_array(T num){
+box_array<T>::box_array(T num){
 	size = 1;
 	unused = 1;
 	arr = new T[size];
@@ -43,13 +43,13 @@ my_da_array<T>::my_da_array(T num){
 	}
 
 // destructor
-/*my_da_array<T>::~my_da_array(){
+/*box_array<T>::~box_array(){
 	delete arr;
 }*/
 
 
 template<class T>
-void my_da_array<T>::print(){
+void box_array<T>::print(){
 	for(int i=0; i < size; i++){
 		cout << arr[i] << " ";
 	}
@@ -57,7 +57,7 @@ void my_da_array<T>::print(){
 }
 
 template<class T>
-int my_da_array<T>::da_push(T num){
+int box_array<T>::da_push(T num){
 	try{
 		T *newArr = new T[size+1];
 		for (int i=0; i < size; i++){
@@ -75,7 +75,7 @@ int my_da_array<T>::da_push(T num){
 }
 
 template<class T>
-T my_da_array<T>::da_pop(){
+T box_array<T>::da_pop(){
 	try{
 		int tempSize = get_size();
 		if (tempSize == 1){
@@ -98,7 +98,7 @@ T my_da_array<T>::da_pop(){
 }
 
 template<class T>
-int my_da_array<T>::da_insert(int pos, T element){
+int box_array<T>::da_insert(int pos, T element){
 	if(size < pos){
 		return -1;
 	}
@@ -121,7 +121,7 @@ int my_da_array<T>::da_insert(int pos, T element){
 }
 
 template<class T>
-T my_da_array<T>::get_elem(int index){
+T box_array<T>::get_elem(int index){
 	if(index > size){
 		T bob;
 		return bob;
@@ -130,13 +130,13 @@ T my_da_array<T>::get_elem(int index){
 }
 
 template<class T>
-int my_da_array<T>::get_size(){
+int box_array<T>::get_size(){
 	return size;
 }
 
 
 template<class T>
-int my_da_array<T>::is_elem(T val){
+int box_array<T>::is_elem(T val){
 	for(int i=0; i < size; i++){
 		if (arr[i] == val){
 			return i;

@@ -1,8 +1,6 @@
-#include "box.h"
-#include "box_array.h"
 class key{
 	private:
-		box_array * boxes;
+		box_array<box*> * boxes;
 	public:
 		key(string);
 		string lookup(char);
@@ -39,11 +37,11 @@ key::key(string filename){
 		hh = char(ascii);
 		box * currentbox = new box(hh,coded);
 		if (num == 0){
-			array = new list(currentbox);
+			boxes = new list(currentbox);
 			num = 1;
 		}
 		else{
-			array->da_push(currentbox);
+			boxes->da_push(currentbox);
 		}
 	}
 	keyFile.close();
@@ -57,5 +55,11 @@ string key::lookup(char c){
 	}
 };
 string key::checkCode(string c){
-
+	for(int i = 0; i <size; i++){
+		if(boxes->get_elem(i)->getcode() == c){
+			return boxes->get_elem(i)->getChar();
+		}
+	return "";
+	}
+	
 };
