@@ -92,10 +92,11 @@ int main(){
 		cout << "Program terminated" << endl;
 		return 0;
 	} else if(command == "D"){
-		string hzipFilename;
+		string hzipFile;
 		cout<< "Please enter the .hzip file to be decompressed" << endl;
-		cin >> hzipFilename;
+		cin >> hzipFile;
 		cin.ignore();
+		while(hzipFile.find(".hzip") 
 
 	}
 	calculateWeights();//tested works
