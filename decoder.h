@@ -29,15 +29,14 @@ string decoder::getString(){
 	int size = x.length();
 	string currentdecoded;
 	string currentPart = x[0];
-	for(int i=0; i<strlen(cs); i++){
-		char x = cs[i];
-		if(k->checkCode(x) != ""){
-			currentCode += k->checkCode(x);
-		} else{
-			break;
+	for(int i=0; i<size; i++){
+		if(k->checkCode(currentPart) != ""){
+			currentdecoded += k->checkCode(x);
+			currentPart="";
 		}
+		currentPart+=x[i];
 	}
-	return currentCode;
+	return currentdecoded;
 };
 
 string decoder::getText(){

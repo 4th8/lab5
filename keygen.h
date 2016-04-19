@@ -19,7 +19,7 @@ class keygen{
 
 	public:
 		keygen(node*,filename);
-		void getKey();
+		key* getKey();
 };
 keygen::keygen(node* root,string file){
 	using namespace std;
@@ -27,7 +27,6 @@ keygen::keygen(node* root,string file){
 	key = "";
 	filename = file;
 	makeKey(root,"");
-	getKey();
 };
 
 void keygen::makeKey(node* root, string coded){
@@ -54,4 +53,5 @@ void keygen::getKey(){
 	out.open(keyfile);
 	out<<key;
 	out.close();
+	return new key(keyfile);
 };
