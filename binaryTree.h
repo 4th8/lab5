@@ -1,4 +1,3 @@
-#include "node.h"
 class binaryTree{
 	public:	
 		binaryTree(){

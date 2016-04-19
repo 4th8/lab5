@@ -1,11 +1,18 @@
-#include "my_da_array.cpp"
-#include "encoder.h"
+#include "data.h"
+#include "node.h"
+#include <fstream>
+#include <iostream>
+#include <string>
+#include "box.h"
+#include "box_array.h"
 #include <sstream> // Needed for stringstream
 #include <stdlib.h>
 #include "keygen.h"
 #include "decoder.h"
 #include "calculateWeights.h"
 #include "key.h"
+#include "encoder.h"
+
 using namespace std;
 
 my_da_array<node*>* readWeights(){

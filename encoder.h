@@ -4,10 +4,7 @@
  */
 
 
-#include "node.h"
-#include <fstream>
-#include <iostream>
-#include <string>
+
 
 using namespace std;
 class encoder{
