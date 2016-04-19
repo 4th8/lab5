@@ -1,4 +1,3 @@
- #include "Binary.h"
 
 using namespace std;
 
@@ -12,9 +11,10 @@ class decoder{
 		ifbstream bin;
 		string s;
 	public:
-		decoder(node*);
+		decoder(string,string);
 		void genText(char, node*);
 		string getText();
+		string getString();
 };
 
 decoder::decoder(string keyFilename, string binFilename){

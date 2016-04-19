@@ -8,10 +8,11 @@
 #include <sstream> // Needed for stringstream
 #include <stdlib.h>
 #include "keygen.h"
-#include "decoder.h"
 #include "calculateWeights.h"
+#include <string.h>
 #include "Binary.h"
 #include "key.h"
+#include "decoder.h"
 #include "encoder.h"
 
 using namespace std;
