@@ -13,13 +13,13 @@ class encoder{
 		key* rep;
 
 	public:
-		encoder(key r);
+		encoder(key* r);
 	//	void genCode(char, node*, string);
-		string incode(string filename);
+		void incode(string);
 		void stringPrint();
 };
 
-encoder::encoder(key k){
+encoder::encoder(key* k){
 	rep = k;
 };
 /*void encoder::genCode(char cur, node * n, string coded){// This will generate the code recursively.
@@ -45,13 +45,13 @@ encoder::encoder(key k){
 
 };*/
 
-void  encoder::incode(filename){
+void  encoder::incode(string filename){
 	ifstream text;
-	text.open(filename);
+	text.open(filename.c_str());
 	char c;
 	while(text.get(c)){
 		cout<<"\nencoding: "<<c<<endl;
-		string s = rep.keyLookup(c);
+		string s = rep->lookup(c);
 		genFile(s, filename);
 	}
 	text.close();
