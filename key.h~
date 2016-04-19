@@ -1,0 +1,13 @@
+#include "box"
+class key{
+	private:
+
+	public:
+		key(string);
+		box * getShortest();
+
+};
+
+
+key::key(string filename){
+
