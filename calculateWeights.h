@@ -9,17 +9,17 @@ class calculateWeights{
 
 	character * characters;
 	public:
-	calculateWeights();
+	calculateWeights(string);
 	void print();
 	void checkCharacters(char);
 };
 
-calculateWeights::calculateWeights(){
+calculateWeights::calculateWeights(string filename){
 	curLen = 0;
 	total = 0;
 	characters = new character[127];//One slot for each of the 127 characters in ascii.
 	ifstream text;
-	text.open("InFile.txt");// this needs to be overwritten with a prompt.
+	text.open(filename.c_str());// this needs to be overwritten with a prompt.
 	char c;
 	while(text.get(c)){
 		checkCharacters(c);	

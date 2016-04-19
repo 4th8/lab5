@@ -15,15 +15,17 @@ class keygen{
 		string key;
 		node * root;
 		void makeKey(node*,string);
+		string filename;
 
 	public:
-		keygen(node*);
-		string getKey();
+		keygen(node*,filename);
+		key* getKey();
 };
-keygen::keygen(node* root){
+keygen::keygen(node* root,string file){
 	using namespace std;
 	root = root;
 	key = "";
+	filename = file;
 	makeKey(root,"");
 };
 
@@ -45,10 +47,11 @@ void keygen::makeKey(node* root, string coded){
 	}
 };
 
-string keygen::getKey(){
+void keygen::getKey(){
 	ofstream out;
-	out.open("keyfile.txt");
+	string keyfile= filename + ".hcodes";
+	out.open(keyfile);
 	out<<key;
 	out.close();
-	return key;
+	return new key(keyfile);
 };
