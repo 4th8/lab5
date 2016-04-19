@@ -99,11 +99,33 @@ int main(){
 		cout << "Program terminated" << endl;
 		return 0;
 	} else if(command == "D"){
-		string hzipFile;
+		string hzipFile, hcodesFile;
 		cout<< "Please enter the .hzip file to be decompressed" << endl;
 		cin >> hzipFile;
 		cin.ignore();
-		while(hzipFile.find(".hzip") 
+		while(hzipFile.find(".hzip") == -1){
+			cout << "Please enter a .hzip file or enter 'Q' to quit" << endl;
+			cout << ">> ";
+			cin hzipFile;
+			if(hzipFile == "Q"){
+				cout << "Program termianted" << endl;
+				return 0;
+			}
+		}
+		cout<< "Please enter the .hcodes file to be used" << endl;
+		cin >> hcodesFile;
+		cin.ignore();
+		while(hcodesFile.find(".hcodes") == -1){
+			cout << "Please enter a .hcodes file or enter 'Q' to quit" << endl;
+			cout << ">> ";
+			cin hcodesFile;
+			if(hcodesFile == "Q"){
+				cout << "Program termianted" << endl;
+				return 0;
+			}
+		}
+		
+		
 
 	}
 	calculateWeights();//tested works
