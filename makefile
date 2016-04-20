@@ -12,4 +12,4 @@ lab5: lab5.o bstream.o error.o strlib.o
 	g++ lab5.o bstream.o error.o strlib.o -o run 
 	./run
 clean:
-	$(RM) lab5
+	$(RM) run 

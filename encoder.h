@@ -15,7 +15,7 @@ class encoder{
 	public:
 		encoder(key* r);
 	//	void genCode(char, node*, string);
-		void incode(string);
+		void incode(string,string);
 		void stringPrint();
 };
 
@@ -23,16 +23,17 @@ encoder::encoder(key* k){
 	rep = k;
 };
 
-void  encoder::incode(string filename){
+void  encoder::incode(string filename,string outname){
 	ifstream text;
 	text.open(filename.c_str());
 	char c;
+	string code = "";
 	while(text.get(c)){
 		string s = rep->lookup(c);
-		cout<<"char: "<<c<<endl;
-		cout<<"code:"<<s<<endl;
-		genFile(s, filename);
+		code+= s;
+		genFile(s, outname);
 	}
+	cout<<"Coded = "<<code<<endl;
 	text.close();
 };
 void encoder::stringPrint(){

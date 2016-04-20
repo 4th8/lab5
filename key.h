@@ -65,5 +65,4 @@ string key::checkCode(string c){
 		}
 	return "";
 	}
-	
 };

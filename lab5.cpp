@@ -150,7 +150,7 @@ int main(){
 		keygen *kgen = new keygen(root, input);
 		key* k = kgen->getKey();
 		encoder* e = new encoder(k);
-		e->incode(infile);
+		e->incode(infile,compFilename);
 
 		/* finds the number of bits in the compressed file */
 		streampos start, end;
