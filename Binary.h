@@ -1,5 +1,5 @@
 void genFile(string coded, string filename){
-		string name = filename + ".hzip";
+		string name = filename;
 		ofbstream bin;
 		bin.open(name);
 		const char* cstr = coded.c_str();

@@ -151,7 +151,7 @@ int main(){
 		key* k = kgen->getKey();
 		encoder* e = new encoder(k);
 		e->incode(infile,compFilename);
-
+		
 		/* finds the number of bits in the compressed file */
 		streampos start, end;
 		ifstream cfile (input.c_str(), ios::binary);

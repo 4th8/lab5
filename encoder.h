@@ -31,9 +31,13 @@ void  encoder::incode(string filename,string outname){
 	while(text.get(c)){
 		string s = rep->lookup(c);
 		code+= s;
-		genFile(s, outname);
 	}
-	cout<<"Coded = "<<code<<endl;
+	for(int i =0; i<code.length(); i++){
+		if(code[i] == ' '){
+			code.erase(i,1);
+		}
+	}
+	genFile(code, outname);
 	text.close();
 };
 void encoder::stringPrint(){

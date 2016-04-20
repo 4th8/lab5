@@ -31,8 +31,8 @@ key::key(string filename){
 			}
 		}
 		int ascii;
-		string c = line.substr(0,space-1);
-		string coded = line.substr(space+1,length);
+		string c = line.substr(0,space);
+		string coded = line.substr(space,length);
 		stringstream s1;
 		s1 << c;
 		s1 >> ascii;
