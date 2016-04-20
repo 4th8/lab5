@@ -140,8 +140,7 @@ int main(){
 		
 		string keyFilename = infile+".hcodes";
 		string compFilename = infile+".hzip";
-
-		calculateWeights(infile);
+		calculateWeights calc = calculateWeights(input);
 		my_da_array<node*>* weights = readWeights();
 		node * root = buildTree(weights);//tested works
 		keygen kgen = keygen(root, input);
@@ -151,7 +150,7 @@ int main(){
 
 		/* finds the number of bits in the compressed file */
 		streampos start, end;
-		ifstream cfile = (compFilename.c_str(), ios::binary);
+		ifstream cfile (infile.c_str(), ios::binary);
 		start = cfile.tellg();
 		cfile.seekg(0, ios::end);
 		end = cfile.tellg();
