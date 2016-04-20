@@ -135,7 +135,7 @@ int main(){
 		cout << "Enter the file .txt file you would like to compress" << endl;
 		cout << ">> " ;
 		cin >> infile;
-		int temp = inflile.find(".");
+		int temp = infile.find(".");
 		string input = infile.substr(0, temp);
 		
 		string keyFilename = infile+".hcodes";
