@@ -1,4 +1,4 @@
-all: 
+all: lab5 
 
 bstream.o: bstream.cpp
 	g++ -c bstream.cpp -o bstream.o
