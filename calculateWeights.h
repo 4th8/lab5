@@ -19,6 +19,7 @@ calculateWeights::calculateWeights(string filename){
 	total = 0;
 	characters = new character[127];//One slot for each of the 127 characters in ascii.
 	ifstream text;
+	cout<<"Filename: "<<filename<<endl;
 	text.open(filename.c_str());// this needs to be overwritten with a prompt.
 	char c;
 	while(text.get(c)){
@@ -51,4 +52,5 @@ void calculateWeights::print(){
 		double z = characters[i].count/total;
 		weightfile<<ch<<" "<<z<<endl;
 	}
+	weightfile.close();
 };

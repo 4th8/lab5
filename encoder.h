@@ -50,13 +50,13 @@ void  encoder::incode(string filename){
 	text.open(filename.c_str());
 	char c;
 	while(text.get(c)){
-		cout<<"\nencoding: "<<c<<endl;
 		string s = rep->lookup(c);
 		genFile(s, filename);
 	}
 	text.close();
 };
 void encoder::stringPrint(){
+	cout<<encodedString<<endl;
 	ofstream outfile;
 	outfile.open("coded.txt");
 	outfile<<encodedString;

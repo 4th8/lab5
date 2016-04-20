@@ -140,7 +140,7 @@ int main(){
 		
 		string keyFilename = infile+".hcodes";
 		string compFilename = infile+".hzip";
-		calculateWeights calc = calculateWeights(input);
+		calculateWeights calc = calculateWeights(infile);
 		my_da_array<node*>* weights = readWeights();
 		node * root = buildTree(weights);//tested works
 		keygen kgen = keygen(root, input);
