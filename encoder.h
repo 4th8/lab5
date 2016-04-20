@@ -22,28 +22,6 @@ class encoder{
 encoder::encoder(key* k){
 	rep = k;
 };
-/*void encoder::genCode(char cur, node * n, string coded){// This will generate the code recursively.
-
-	using namespace std;
-	if(n->checkLeaf() == true){
-		if(n->getVal() == cur){
-			encodedString += coded;
-			int i = cur;
-			cout<<"found the leaf:"<<endl;
-			cout<<"Current: "<<i<<endl;
-			cout<<"n get value: "<<n->getVal()<<endl;
-			cout<<"code: "<<coded<<endl;
-			return;
-		}
-	}
-	if(n->hasLeft()){
-		genCode(cur,n->getLeft(),coded+"0");
-	}
-	if(n->hasRight()){
-		genCode(cur,n->getRight(),coded+"1");
-	}
-
-};*/
 
 void  encoder::incode(string filename){
 	ifstream text;
