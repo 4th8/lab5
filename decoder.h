@@ -1,3 +1,5 @@
+#include "bstream.h"
+#include "Binary.h"
 
 using namespace std;
 
@@ -25,10 +27,10 @@ decoder::decoder(string keyFilename, string binFilename){
 };
 
 string decoder::getString(){
-	x = genString(bin);
+	string x = genString(bin);
 	int size = x.length();
 	string currentdecoded;
-	string currentPart = x[0];
+	string currentPart = &x[0];
 	for(int i=0; i<size; i++){
 		if(k->checkCode(currentPart) != ""){
 			currentdecoded += k->checkCode(x);
