@@ -128,7 +128,10 @@ int main(){
 				return 0;
 			}
 		}
-		decoder d = decoder(hcodesFile, hzipFile);
+		decoder* d = new decoder(hcodesFile, hzipFile);
+		string decodedString = d->getString();
+
+		cout << "decoded string is: " << decodedString << endl;	
 		cout << "Your file has been decompressed" << endl;
 	} else{
 		string infile;
@@ -137,8 +140,6 @@ int main(){
 		cin >> infile;
 		int temp = infile.find(".");
 		string input = infile.substr(0, temp);
-
-	
 		string keyFilename = input+".hcodes";
 		string compFilename = input+".hzip";
 		calculateWeights calc = calculateWeights(infile);
@@ -146,12 +147,12 @@ int main(){
 		node * root = buildTree(weights);//tested works
 		keygen kgen = keygen(root, input);
 		key* k = kgen.getKey();
-		encoder e = encoder(k);
-		e.incode(infile);
+		encoder* e = new encoder(k);
+		e->incode(infile);
 
 		/* finds the number of bits in the compressed file */
 		streampos start, end;
-		ifstream cfile (compFilename.c_str(), ios::binary);
+		ifstream cfile (input.c_str(), ios::binary);
 		start = cfile.tellg();
 		cfile.seekg(0, ios::end);
 		end = cfile.tellg();
@@ -159,7 +160,7 @@ int main(){
 		double compressedFileBits = (end-start)*8;
 	
 		/* finds the number of bits in the text file */
-		ifstream ufile(infile.c_str(), ios::binary);
+		ifstream ufile(input.c_str(), ios::binary);
 		start = ufile.tellg();
 		ufile.seekg(0, ios::end);
 		end = ufile.tellg();
@@ -168,7 +169,7 @@ int main(){
 
 		cout << "Your file has been compressed" << endl;
 		cout << "The compression ratio between your files is: " << uncompressedFileBits/compressedFileBits << ":1" << endl;
-		cout << "You saved: " << (1-(compressedFileBits/uncompressedFileBits))*100 << "%" << "of the space you would have used" << endl;
+		cout << "You saved: " << (1-(compressedFileBits/uncompressedFileBits))*100 << "%" << " of the space you would have used" << endl;
 }
 
 /*	//int size = weights->get_size();
