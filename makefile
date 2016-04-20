@@ -1,4 +1,4 @@
-all: lab5
+all: 
 
 bstream.o: bstream.cpp
 	g++ -c bstream.cpp -o bstream.o
@@ -9,7 +9,7 @@ strlib.o: strlib.cpp
 lab5.o: lab5.cpp
 	g++ -c lab5.cpp -o lab5.o
 lab5: lab5.o bstream.o error.o strlib.o
-	g++ lab5.o bstream.o error.o strlib.o -o lab5
+	g++ lab5.o bstream.o error.o strlib.o -o run 
 
 clean:
 	$(RM) lab5
