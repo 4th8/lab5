@@ -8,7 +8,7 @@ class decoder{
 		string incodedText;
 		node * root;
 		key* k;
-		ifbstream bin;
+		string bin;
 	public:
 		decoder(string,string);
 		void genText(char, node*);
@@ -17,7 +17,7 @@ class decoder{
 };
 
 decoder::decoder(string keyFilename, string binFilename){
-	bin.open(binFilename);
+	bin= binFilename;
 	k = new key(keyFilename);
 	decodedString = getString();
 	cout<<decodedString<<endl;

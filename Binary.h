@@ -1,4 +1,3 @@
-
 void genFile(string coded, string filename){
 		string name = filename + ".hzip";
 		ofbstream bin;
@@ -18,7 +17,9 @@ void genFile(string coded, string filename){
 }
 
 
-string genString(ifbstream &input){
+string genString(string filename){
+		ifbstream input;
+		input.open(filename.c_str());
 		string str = "";
 		while(!input.eof()){
 				if(input.readBit()){
