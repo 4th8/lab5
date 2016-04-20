@@ -102,7 +102,8 @@ int main(){
 		cout << "Program terminated" << endl;
 		return 0;
 	} else if(command == "D"){
-		string hzipFile, hcodesFile;
+		string hzipFile;
+		string hcodesFile;
 		cout<< "Please enter the .hzip file to be decompressed" << endl;
 		cin >> hzipFile;
 		cin.ignore();
