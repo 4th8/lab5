@@ -36,6 +36,7 @@ string decoder::getString(){
 		}
 		currentPart+=x[i];
 	}
+	cout<<"Result: "currentdecoded<<endl;
 	return currentdecoded;
 };
 
