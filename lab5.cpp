@@ -135,8 +135,8 @@ int main(){
 		int temp = inflile.find(".");
 		string input = infile.substr(0, temp);
 		
-	//	string keyFilename = infile+".hcodes";
-	//	string compFilename = infile+".hzip";
+		string keyFilename = infile+".hcodes";
+		string compFilename = infile+".hzip";
 
 		calculateWeights(infile);
 		my_da_array<node*>* weights = readWeights();
@@ -145,7 +145,28 @@ int main(){
 		key* k = kgen.getKey();
 		encoder e = encoder(k);
 		e.incode(infile);
-	}
+
+		/* finds the number of bits in the compressed file */
+		streampos start, end;
+		ifstream cfile = (compFilename.c_str(), ios::binary);
+		start = cfile.tellg();
+		cfile.seekg(0, ios::end);
+		end = cfile.tellg();
+		cfile.close();
+		double compressedFileBits = (end-start)*8;
+	
+		/* finds the number of bits in the text file */
+		ifstream ufile(infile.c_str(), ios::binary);
+		start = ufile.tellg();
+		ufile.seekg(0, ios::end);
+		end = ufile.tellg();
+		ufile.close();
+		double uncompressedFileBits = (end-start)*8;
+
+		cout << "Your file has been compressed" << endl;
+		cout << "The compression ratio between your files is: " << uncompressedFileBits/compressedFileBits << ":1" << endl;
+		cout << "You saved: " << (1-(compressedFileBits/uncompressedFileBits))*100 << "%" << "of the space you would have used" << endl;
+}
 
 /*	//int size = weights->get_size();
 	//for(int i =0; i<size; i++){
