@@ -137,9 +137,10 @@ int main(){
 		cin >> infile;
 		int temp = infile.find(".");
 		string input = infile.substr(0, temp);
-		
-		string keyFilename = infile+".hcodes";
-		string compFilename = infile+".hzip";
+
+	
+		string keyFilename = input+".hcodes";
+		string compFilename = input+".hzip";
 		calculateWeights calc = calculateWeights(infile);
 		my_da_array<node*>* weights = readWeights();
 		node * root = buildTree(weights);//tested works
@@ -150,7 +151,7 @@ int main(){
 
 		/* finds the number of bits in the compressed file */
 		streampos start, end;
-		ifstream cfile (infile.c_str(), ios::binary);
+		ifstream cfile (compFilename.c_str(), ios::binary);
 		start = cfile.tellg();
 		cfile.seekg(0, ios::end);
 		end = cfile.tellg();
