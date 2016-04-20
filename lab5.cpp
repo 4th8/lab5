@@ -10,7 +10,6 @@
 #include "keygen.h"
 #include "decoder.h"
 #include "calculateWeights.h"
-#include "key.h"
 #include "encoder.h"
 
 using namespace std;
