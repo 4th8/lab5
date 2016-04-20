@@ -1,16 +1,17 @@
+#include <stdlib.h>
+#include <fstream>
+#include <string>
+#include <iostream>
+#include <sstream> // Needed for stringstream
 #include "data.h"
 #include "node.h"
-#include <fstream>
-#include <iostream>
-#include <string>
 #include "box.h"
 #include "box_array.h"
-#include <sstream> // Needed for stringstream
-#include <stdlib.h>
 #include "keygen.h"
 #include "decoder.h"
 #include "calculateWeights.h"
 #include "encoder.h"
+#include "my_da_array.cpp"
 
 using namespace std;
 
@@ -105,7 +106,7 @@ int main(){
 		while(hzipFile.find(".hzip") == -1){
 			cout << "Please enter a .hzip file or enter 'Q' to quit" << endl;
 			cout << ">> ";
-			cin hzipFile;
+			cin >> hzipFile;
 			if(hzipFile == "Q"){
 				cout << "Program termianted" << endl;
 				return 0;
@@ -118,7 +119,7 @@ int main(){
 		while(hcodesFile.find(".hcodes") == -1){
 			cout << "Please enter a .hcodes file or enter 'Q' to quit" << endl;
 			cout << ">> ";
-			cin hcodesFile;
+			cin >> hcodesFile;
 			if(hcodesFile == "Q"){
 				cout << "Program termianted" << endl;
 				return 0;

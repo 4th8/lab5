@@ -1,5 +1,6 @@
 #include "bstream.h"
-
+#include <stdlib.h>
+#include <string.h>
 void genFile(string coded, string filename){
 		string name = filename + ".hzip";
 		ofbstream bin;
