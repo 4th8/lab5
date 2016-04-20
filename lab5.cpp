@@ -4,7 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream> // Needed for stringstream
-#include "bstream.cpp"
+#include "bstream.h"
 #include "Binary.h"
 #include "data.h"
 #include "node.h"
