@@ -1,16 +1,19 @@
 #include <stdlib.h>
-#include <fstream>
+#include <string.h>
 #include <string>
 #include <iostream>
+#include <fstream>
 #include <sstream> // Needed for stringstream
+#include "bstream.cpp"
+#include "Binary.h"
 #include "data.h"
 #include "node.h"
 #include "box.h"
 #include "box_array.h"
 #include "keygen.h"
-#include "decoder.h"
 #include "calculateWeights.h"
 #include "encoder.h"
+#include "decoder.h"
 #include "my_da_array.cpp"
 
 using namespace std;
