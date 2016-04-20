@@ -51,6 +51,8 @@ void  encoder::incode(string filename){
 	char c;
 	while(text.get(c)){
 		string s = rep->lookup(c);
+		cout<<"char: "<<c<<endl;
+		cout<<"code:"<<s<<endl;
 		genFile(s, filename);
 	}
 	text.close();

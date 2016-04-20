@@ -143,11 +143,11 @@ int main(){
 		string input = infile.substr(0, temp);
 		string keyFilename = input+".hcodes";
 		string compFilename = input+".hzip";
-		calculateWeights calc = calculateWeights(infile);
+		calculateWeights * calc = new calculateWeights(infile);
 		my_da_array<node*>* weights = readWeights();
 		node * root = buildTree(weights);//tested works
-		keygen kgen = keygen(root, input);
-		key* k = kgen.getKey();
+		keygen *kgen = new keygen(root, input);
+		key* k = kgen->getKey();
 		encoder* e = new encoder(k);
 		e->incode(infile);
 
