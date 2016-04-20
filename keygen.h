@@ -1,6 +1,6 @@
 /*
-Creates and stores the key for the Huffman tree.
-The key will be in the format of the character followed by a space  then the path to the character in the tree.
+Creates and stores the k for the Huffman tree.
+The k will be in the format of the character followed by a space  then the path to the character in the tree.
 Example:
 	e 0
 	b 100
@@ -8,23 +8,24 @@ Example:
 	d 110
 	a 111
 
-The key can be retrieved with the getKey() method.
+The k can be retrieved with the getKey() method.
 */
+#include "key.h"
 class keygen{
 	private:
-		string key;
+		string k;
 		node * root;
 		void makeKey(node*,string);
 		string filename;
 
 	public:
-		keygen(node*,filename);
-		key* getKey();
+		keygen(node*,string);
+		key * getKey();
 };
 keygen::keygen(node* root,string file){
 	using namespace std;
 	root = root;
-	key = "";
+	k = "";
 	filename = file;
 	makeKey(root,"");
 };
@@ -36,7 +37,7 @@ void keygen::makeKey(node* root, string coded){
 		stringstream ss;
 		ss<<val;
 		ss>>value;
-		key = key + value + " " + coded + "\n";
+		k = k + value + " " + coded + "\n";
 		return;
 	}
 	if(root->hasLeft()){
@@ -47,11 +48,11 @@ void keygen::makeKey(node* root, string coded){
 	}
 };
 
-void keygen::getKey(){
+key* keygen::getKey(){
 	ofstream out;
 	string keyfile= filename + ".hcodes";
-	out.open(keyfile);
-	out<<key;
+	out.open(keyfile.c_str());
+	out<<k;
 	out.close();
 	return new key(keyfile);
 };
