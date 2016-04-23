@@ -26,17 +26,23 @@ decoder::decoder(string keyFilename, string binFilename){
 
 string decoder::getString(){
 	string x = genString(bin);
-	cout << "x is : " <<  x << endl;
 	int size = x.length();
+	int start= 0;
+	int end = 1;
+	int d=0;
 	string currentdecoded;
-	string currentPart = &x[0];
-	for(int i=0; i<size; i++){
-		if(k->checkCode(currentPart) != ""){
-			currentdecoded.append(k->checkCode(x));
-			cout << currentdecoded << endl;
+	string currentPart = x.substr(start,end);
+	while(d<size+1){
+		if((k->checkCode(currentPart).compare(""))!=0){
+			currentdecoded.append(k->checkCode(currentPart));
 			currentPart="";
+			start = end;
+			d+=end;
+			end=0;
+
 		}
-		currentPart+=x[i];
+		end= end+1;
+		currentPart= x.substr(start,end);
 	}
 	cout << "current decoded : " << currentdecoded << endl;
 	return currentdecoded;

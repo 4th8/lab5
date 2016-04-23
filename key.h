@@ -32,7 +32,7 @@ key::key(string filename){
 		}
 		int ascii;
 		string c = line.substr(0,space);
-		string coded = line.substr(space,length);
+		string coded = line.substr(space+1,length);
 		stringstream s1;
 		s1 << c;
 		s1 >> ascii;
@@ -59,10 +59,11 @@ string key::lookup(char c){
 string key::checkCode(string c){
 	string ans = "";
 	for(int i = 0; i <size; i++){
-		if(boxes->get_elem(i)->getcode() == c){
+		if((boxes->get_elem(i)->getcode().compare(c)) == 0){
 			ans += boxes->get_elem(i)->getChar();
 			return ans;
 		}
-	return "";
 	}
+	return "";
+	
 };
